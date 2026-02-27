@@ -1,0 +1,669 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    /* Color Palette */
+    --bg-color: #ECDFCC;      /* Cam nhạt */
+    --nav-bg: #EBAD62;        /* Cam vừa */
+    --text-dark: #14234C;     /* Xanh đậm */
+    --text-blue: #3A6DAF;     /* Xanh nhạt */
+    --text-orange: #E57D36;   /* Cam điểm nhấn */
+    --btn-green: #41D347;     /* Xanh lá */
+    --disabled: #C7C7C7;      /* Xám */
+    --btn-shadow: rgba(57, 182, 61, 0.3);
+    --panel-bg: #E0E0E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+/* =========================================
+   2. NAVIGATION BAR
+   ========================================= */
+.nav-bar {
+    background-color: var(--nav-bg);
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    flex-shrink: 0;
+    z-index: 100; 
+}
+
+/* Logo Styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MyLogo {
+    width: 35px;
+    height: 42px;
+    transform: rotate(-15deg);
+    transform: translateX(-60px);
+    object-fit: contain;
+}
+
+/* Menu Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    transform: translateX(60px);
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.5;
+    transition: opacity 0.2s ease;
+}
+
+.nav-item:hover {
+    opacity: 0.7;
+}
+
+.btn-about {
+    background-color: var(--text-orange);
+    color: var(--text-dark);
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   3. HERO SECTION (MAIN LAYOUT)
+   ========================================= */
+.page-content { 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pageFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes pageFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-section {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+    position: relative;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   4. TYPOGRAPHY & TEXT CONTENT
+   ========================================= */
+.text-content {
+    flex: 1;
+    z-index: 10;
+    max-width: 600px;
+}
+
+.main-title {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
+/* Word Colors */
+.word-1, .word-3 {
+    color: var(--text-dark);
+}
+
+.word-2, .word-4 {
+    color: var(--text-orange);
+}
+
+.description {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 70px;
+    margin-left: 50px;
+    line-height: 1.5;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+/* =========================================
+   5. BUTTONS & INTERACTIVE
+   ========================================= */
+.btn-connect {
+    background-color: var(--btn-green);
+    color: var(--text-blue);
+    font-size: 18px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--btn-shadow);
+    transform: translate(50px, -50px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-connect:hover {
+    background-color: #3AA840;
+    transform: translate(50px, -52px);
+    box-shadow: 0 6px 20px var(--btn-shadow);
+    cursor: pointer;
+}
+
+.btn-connect:active {
+    background-color: var(--disabled);
+    transform: translate(50px, -48px);
+    box-shadow: none;
+}
+
+.btn-connect:focus {
+    background-color: var(--disabled);
+    transform: translate(50px, -48px);
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-temp {
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-temp img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease;
+}
+
+.btn-temp img {
+    filter: brightness(100%);
+}
+
+.btn-temp:hover img:not(.active) {
+    filter: brightness(80%);
+}
+
+.btn-temp.active img {
+    filter: brightness(50%);
+}
+
+/* =========================================
+   6. IMAGES & DECORATIONS
+   ========================================= */
+/* Router Image */
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 5;
+}
+
+.router-img {
+    width: 100%; /* Responsive theo khung cha */
+    max-width: 500px;
+    height: auto;
+    
+    /* Điều chỉnh vị trí */
+    margin-top: 50px;
+    margin-left: 30px; 
+    
+    /* Hiệu ứng 3D */
+    filter: drop-shadow(20px 30px 40px rgba(0,0,0,0.4));
+    transform: perspective(1000px) rotateY(-5deg);
+}
+
+/* Wire Container (Dây nối) */
+.wire {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+
+    width: 760px;
+    height: 150px;
+
+    top: 330px;
+    left: 150px;
+}
+
+.wire-active {
+    stroke: var(--btn-green);
+    stroke-width: 6.5;
+    fill: none;
+
+    
+    opacity: 1;
+}
+
+.wire-base {
+    stroke: var(--text-dark);
+    stroke-width: 6;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 0;
+    fill: none;
+}
+
+.wire.active .wire-base {
+    animation: wire-fill 1s ease forwards;
+}
+
+.wire.off .wire-base {
+    animation: wire-fill 0.6s ease forwards;
+    animation-direction: reverse;
+}
+
+@keyframes wire-fill {
+    to {
+        stroke-dashoffset: 900;
+    }
+}
+
+/* --- SERVER LIST POPUP (Overlay) --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+
+    /* setup cho animation */
+    transform: translateX(-60px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.6s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Class để hiện popup */
+.overlay.visible {
+    transform: translateX(0px);
+    opacity: 1;
+    visibility: visible;
+}
+
+.server-list-container {
+    width: 600px;
+    height: 500px;
+    background-color: var(--nav-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+    transform: translateX(-350px);
+    margin-top: 60px;
+    color: white;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(20, 35, 76, 0.1);
+    padding-bottom: 10px;
+}
+
+.list-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 220px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-bottom: 5px;
+}
+
+.icon-btn img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Khu vực chứa danh sách */
+.server-items-wrapper {
+    flex-grow: 1;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    padding: 10px;
+    overflow-y: auto; 
+}
+
+.server-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.server-item {
+    padding: 10px;
+    border-bottom: 0.5px solid var(--text-blue);
+    border-top: 0.5px solid var(--text-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-dark)
+}
+
+.server-item.empty {
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: none;
+    border-top: none;
+    text-align: center;
+    color: var(--text-dark);
+    padding: 20px 20px;
+}
+
+/* Link icon styling - màu cam và kích thước lớn hơn */
+.link-icon {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: auto;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+
+    transition: filter 0.2s ease;
+}
+
+.link-icon:hover {
+    filter: brightness(1.1);
+}
+
+/* Footer phân trang */
+.change_page {
+    display: flex;
+    align-items: center;     
+    justify-content: center; 
+    gap: 15px;              
+    margin-top: 20px;
+}
+
+.nav-btn {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.return_img {
+    width: 40px;
+    height: 40px;
+}
+
+.reload_img {
+    width: 40px;
+    height: 40px;
+}
+
+.nav-btn:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: var(--disabled);
+    border-color: var(--disabled);
+    opacity: 0.5;
+}
+
+.nav-btn:focus {
+    outline: none;
+}
+
+.left_img {
+    width: 30px;
+    height: 30px;
+    transform: translateY(-2px);
+}
+
+.right_img {
+    width: 30px;
+    height: 30px;
+    transform: translateY(-2px);
+}
+
+#page-indicator {
+    flex-grow: 1;  
+    max-width: 100px;
+    text-align: center;
+    user-select: none;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* =========================================
+   7. RESPONSIVE DESIGN (MOBILE/TABLET)
+   ========================================= */
+@media (max-width: 1024px) {
+    .main-title {
+        font-size: 48px;
+    }
+    
+    .router-img {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        overflow: auto;
+    }
+
+    .navbar {
+        padding: 0 20px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .nav-item:not(.btn-about) {
+        display: none; 
+    }
+
+    .content-wrapper {
+        flex-direction: column-reverse; 
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    .image-content {
+        justify-content: center;
+        margin-bottom: 40px;
+        width: 100%;
+    }
+    
+    .router-img {
+        margin-top: 0;
+        margin-left: 0;
+        max-width: 300px;
+    }
+
+    .text-content {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .main-title {
+        font-size: 36px;
+    }
+
+    .wire {
+        display: none; 
+    }
+}
+
+/* ================= LOGIN OVERLAY STYLES ================= */
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.login-overlay.hidden {
+    display: none;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.login-title {
+    color: #00ff00;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+    font-family: 'Monaco', 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: #00ff00;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.password-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #00ff00;
+    color: #00ff00;
+    font-size: 16px;
+    outline: none;
+    font-family: 'Monaco', 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+.password-input::placeholder {
+    color: #00ff00;
+    opacity: 0.3;
+}
+
+.password-input:focus {
+    border-bottom-color: #00ff00;
+}
+
+.login-error {
+    padding: 8px 0;
+    color: #ff0000;
+    font-size: 13px;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.login-error.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .login-title {
+        font-size: 18px;
+    }
+    
+    .password-input {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Com.net - System Monitor</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/system_info.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <header class="nav-bar">
+            <div class="logo-container">
+                <img src="./assets/images/logo.png" alt="Logo" class="MyLogo" />
+            </div>
+            <nav class="nav-links">
+                <a href="./advanced_menu.html" class="nav-item">More</a>
+                <a href="#" class="nav-item">Settings</a>
+                <a href="./index.html" class="nav-item">Home</a>
+                <a href="#" class="nav-item btn-about">About</a>
+            </nav>
+        </header>
+
+        <main class="manager-section">
+            <div class="explorer-card">
+                <div class="toolbar">
+                    <div class="path-bar">
+                        <i class="fa-solid fa-desktop"></i> <span id="agent-name-display">Connecting...</span>
+                    </div>
+                    <div class="actions">
+                        <button id="refresh-btn" class="tool-btn btn-refresh-orange">
+                            <i class="fa-solid fa-sync"></i> Refresh
+                        </button>
+                        <a href="advanced_menu.html" class="btn-back-custom orange-bg">
+                            <img src="./assets/images/return.png" alt="Back">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="monitor-body">
+                    <div class="stats-grid-top">
+                        <div class="info-box">
+                            <div class="icon-box blue"> 
+                                <i id="os-icon" class="fa-solid fa-desktop"></i>
+                            </div>
+                            <div class="info-content">
+                                <label>Operating System</label>
+                                <h3 id="os-info">Loading...</h3>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="icon-box red">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <div class="info-content">
+                                <label>CPU Model</label>
+                                <h3 id="cpu-model">Loading...</h3>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="icon-box green">
+                                <i class="fa-solid fa-battery-full"></i>
+                            </div>
+                            <div class="info-content">
+                                <label>Battery Status</label>
+                                <h3 id="battery-text">Checking...</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-row">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <span><i class="fa-solid fa-wave-square"></i> CPU Load</span>
+                                <span id="cpu-load-val" class="badge">0%</span>
+                            </div>
+                            <div class="canvas-holder">
+                                <canvas id="cpuHistoryChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <span><i class="fa-solid fa-memory"></i> RAM Usage</span>
+                                <span id="ram-usage-val" class="badge orange">0%</span>
+                            </div>
+                            <div class="canvas-holder">
+                                <canvas id="ramHistoryChart"></canvas>
+                            </div>
+                            <div class="mini-stat" id="ram-detail-text">0 / 0 MB</div>
+                        </div>
+                    </div>
+
+                    <div class="details-row">
+                        <div class="detail-panel">
+                            <div class="panel-header"><i class="fa-solid fa-hard-drive"></i> Disk Storage</div>
+                            <div id="disk-container" class="scroll-list"></div>
+                        </div>
+
+                        <div class="detail-panel">
+                            <div class="panel-header"><i class="fa-solid fa-network-wired"></i> Network Interfaces</div>
+                            <div id="network-container" class="scroll-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/js/system_info.js"></script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+/* =========================================
+   FEATURE MENU STYLES - REVISED
+   ========================================= */
+
+:root {
+    --line-color: #3A6DAF;
+}
+
+.feature-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    position: relative;
+    transform: translateY(15px);
+}
+
+/* Container chính chứa 3 cột */
+.feature-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    gap: 40px;
+}
+
+.side-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    flex: 1;
+    z-index: 10;
+}
+
+.left-col {
+    align-items: flex-end;
+}
+
+.right-col {
+    align-items: flex-start;
+}
+
+/* --- THANH CHỨC NĂNG (ITEM) --- */
+.feature-item {
+    position: relative;
+    width: 260px; 
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.feature-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--text-blue);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.left-col .feature-content {
+    justify-content: flex-end;
+}
+
+.content-right {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+/* Hover Effect */
+.feature-content:hover {
+    transform: translateY(-5px);
+    border-bottom-color: var(--text-orange);
+}
+.feature-content:hover .feature-text { color: var(--text-orange); }
+.feature-content:hover .icon-style { color: var(--text-orange); transform: scale(1.1); }
+
+/* Text & Icon */
+.feature-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-blue);
+}
+.icon-style {
+    font-size: 20px;
+    color: var(--text-dark);
+}
+.warning { color: #d9534f; }
+
+
+/* --- TRUNG TÂM --- */
+.center-column {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+}
+
+.laptop-wrapper {
+    position: relative;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.laptop-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 30px 20px rgba(0,0,0,0.2));
+}
+
+.disconnect-btn {
+    background-color: var(--text-orange);
+    color: white;
+    border: none;
+    padding: 10px 36px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    user-select: none;
+
+    transform: translateY(-40px) scale(1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.disconnect-btn:hover {
+    filter: brightness(1.15);
+    transform: translateY(-44px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.disconnect-btn:focus {
+    outline: none;
+    filter: brightness(0.85);
+    transform: translateY(-40px) scale(1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+/* Căn chữ vào giữa màn hình laptop */
+.screen-overlay {
+    position: absolute;
+    top: 36%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.code-text {
+    font-family: 'Courier Prime', monospace;
+    font-size: 25px; 
+    color: var(--text-blue);
+    font-weight: 700;
+    transform: translateY(20px);
+
+    display: inline-block;
+    white-space: nowrap;
+    width: auto;
+    min-width: 0;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes flyUp {
+    0% { opacity: 0; transform: translateY(60px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.slide-up { opacity: 0; animation: flyUp 0.6s ease-out forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+@keyframes zoomIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.zoom-in { animation: zoomIn 0.8s ease forwards; }
+
+@keyframes drawLine {
+    from { width: 0; }
+    to { width: 90px; }
+}
+
+/* Typing Effect */
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--text-blue); 
+    width: 0ch;
+    animation: typing 2s steps(15) 1s forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing { 
+    to { width: auto; }
+}
+
+@keyframes blink { 
+    50% { border-color: transparent; } 
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .feature-container { flex-direction: column; gap: 30px; }
+    .side-column { flex-direction: row; flex-wrap: wrap; gap: 15px; }
+    .connector-line { display: none; }
+    .feature-item { width: auto; background: rgba(255,255,255,0.4); padding: 5px 15px; border-radius: 6px; }
+    .center-column { order: -1; }
+    .laptop-wrapper { width: 300px; }
+    .code-text { font-size: 16px; }
+}

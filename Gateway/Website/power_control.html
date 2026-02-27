@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shutdown & Restart</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/feature_menu.css" />
+    <link rel="stylesheet" href="assets/css/power_control.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="nav-bar">
+        <div class="logo-container">
+            <img src="./assets/images/logo.png" alt="Logo" class="MyLogo" />
+        </div>
+        <nav class="nav-links">
+            <a href="./advanced_menu.html" class="nav-item">More</a>
+            <a href="#" class="nav-item">Settings</a>
+            <a href="./index.html" class="nav-item">Home</a>
+            <a href="#" class="nav-item btn-about">About</a>
+        </nav>
+    </header>
+
+    <div class="confirm-overlay hidden" id="confirmOverlay"></div>
+
+    <div class="confirm-panel hidden" id="confirmPanel">
+        <div class="confirm-outline">
+            <div class="confirm-face">
+                <p class="confirm-text">Are you sure?</p>
+
+                <div class="confirm-actions">
+                    <button class="confirm-btn yes">Yes</button>
+                    <button class="confirm-btn no">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="shutdown-page">
+        <div class="page-content">
+
+            <div class="laptop-section" style="position: relative;">
+                <img src="./assets/images/laptop.png" alt="Goodbye Laptop" class="laptop-img" />
+
+                <div class="screen-overlay">
+                    <div class="screen-text typing-effect"></div>
+                </div>
+            </div>
+
+            <div class="control-panel-wrapper">
+                <div class="control-panel-base"></div>
+                <div class="control-panel-outline">
+                    <div class="control-panel-face">
+
+                        <button id="btn-restart" class="img-btn sm-btn">
+                            <img src="./assets/images/restart.png" alt="Restart">
+                        </button>
+
+                        <button id="btn-shutdown" class="img-btn lg-btn">
+                            <img src="./assets/images/shutdown.png" alt="Shutdown">
+                        </button>
+
+                        <button id="btn-sleep" class="img-btn sm-btn">
+                            <img src="./assets/images/sleep.png" alt="Sleep">
+                        </button>
+
+                        <button id="btn-back" class="img-btn tn-btn">
+                            <img src="./assets/images/back.png" alt="Back">
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/js/power_control.js"></script>
+</body>

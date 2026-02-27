@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Com.net - Keylog</title>
+    
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/keylog.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="nav-bar">
+        <div class="logo-container">
+            <img src="./assets/images/logo.png" alt="Logo" class="MyLogo" />
+        </div>
+
+        <nav class="nav-links">
+            <a href="./advanced_menu.html" class="nav-item">More</a>
+            <a href="#" class="nav-item">Settings</a>
+            <a href="./index.html" class="nav-item">Home</a>
+            <a href="#" class="nav-item btn-about">About</a>
+        </nav>
+    </header>
+
+    <main class="keylog-section">
+        
+        <div class="controls-container">
+            <input type="text" id="keylog-panel" class="key-display" placeholder="Keystrokes will appear here..." readonly />
+            <div class="action-buttons">
+                <button class="k-btn btn-menu">Back to menu</button>
+                <button class="k-btn btn-start">Start keylog</button>
+                <button class="k-btn btn-stop">Stop keylog</button>
+                <button class="k-btn btn-save">Save to device</button>
+            </div>
+        </div>
+
+        <div class="keyboard-base">
+            
+            <div class="kb-section-main">
+                <div class="key-row f-row">
+                    <div class="key k-1">Esc</div>
+                    <div class="gap-block"></div>
+                    <div class="key k-1">F1</div><div class="key k-1">F2</div><div class="key k-1">F3</div><div class="key k-1">F4</div>
+                    <div class="gap-block"></div>
+                    <div class="key k-1">F5</div><div class="key k-1">F6</div><div class="key k-1">F7</div><div class="key k-1">F8</div>
+                    <div class="gap-block"></div>
+                    <div class="key k-1">F9</div><div class="key k-1">F10</div><div class="key k-1">F11</div><div class="key k-1">F12</div>
+                </div>
+
+                <div class="key-row">
+                    <div class="key k-1">`</div><div class="key k-1">1</div><div class="key k-1">2</div><div class="key k-1">3</div>
+                    <div class="key k-1">4</div><div class="key k-1">5</div><div class="key k-1">6</div><div class="key k-1">7</div>
+                    <div class="key k-1">8</div><div class="key k-1">9</div><div class="key k-1">0</div><div class="key k-1">-</div>
+                    <div class="key k-1">=</div><div class="key k-2">Backspace</div>
+                </div>
+
+                <div class="key-row">
+                    <div class="key k-1-5">Tab</div>
+                    <div class="key k-1">Q</div><div class="key k-1">W</div><div class="key k-1">E</div><div class="key k-1">R</div>
+                    <div class="key k-1">T</div><div class="key k-1">Y</div><div class="key k-1">U</div><div class="key k-1">I</div>
+                    <div class="key k-1">O</div><div class="key k-1">P</div><div class="key k-1">[</div><div class="key k-1">]</div>
+                    <div class="key k-1-5">\</div>
+                </div>
+
+                <div class="key-row">
+                    <div class="key k-1-75">Caps</div>
+                    <div class="key k-1">A</div><div class="key k-1">S</div><div class="key k-1">D</div><div class="key k-1">F</div>
+                    <div class="key k-1">G</div><div class="key k-1">H</div><div class="key k-1">J</div><div class="key k-1">K</div>
+                    <div class="key k-1">L</div><div class="key k-1">;</div><div class="key k-1">'</div><div class="key k-2-25">Enter</div>
+                </div>
+
+                <div class="key-row">
+                    <div class="key k-2-25">Shift</div>
+                    <div class="key k-1">Z</div><div class="key k-1">X</div><div class="key k-1">C</div><div class="key k-1">V</div>
+                    <div class="key k-1">B</div><div class="key k-1">N</div><div class="key k-1">M</div><div class="key k-1">,</div>
+                    <div class="key k-1">.</div><div class="key k-1">/</div><div class="key k-2-75">Shift</div>
+                </div>
+
+                <div class="key-row">
+                    <div class="key k-1-25">Ctrl</div><div class="key k-1-25">Win</div><div class="key k-1-25">Alt</div>
+                    <div class="key k-6-25"></div> <div class="key k-1-25">Alt</div><div class="key k-1-25">Fn</div><div class="key k-1-25">Menu</div><div class="key k-1-25">Ctrl</div>
+                </div>
+            </div>
+
+            <div class="kb-section-nav">
+                <div class="nav-top">
+                    <div class="key-row">
+                        <div class="key k-1">Prt</div><div class="key k-1">Scr</div><div class="key k-1">Pau</div>
+                    </div>
+                    <div class="key-row">
+                        <div class="key k-1">Ins</div><div class="key k-1">Hm</div><div class="key k-1">Pup</div>
+                    </div>
+                    <div class="key-row">
+                        <div class="key k-1">Del</div><div class="key k-1">End</div><div class="key k-1">Pdn</div>
+                    </div>
+                </div>
+
+                <div class="nav-arrows">
+                    <div class="key-row">
+                        <div class="key k-1 transparent"></div><div class="key k-1">↑</div><div class="key k-1 transparent"></div>
+                    </div>
+                    <div class="key-row">
+                        <div class="key k-1"><-</div><div class="key k-1">↓</div><div class="key k-1">-></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kb-section-numpad">
+                <div class="key k-1">Num</div><div class="key k-1">/</div><div class="key k-1">*</div><div class="key k-1">-</div>
+                
+                <div class="key k-1">7</div><div class="key k-1">8</div><div class="key k-1">9</div>
+                <div class="key k-1 k-h-2">+</div> <div class="key k-1">4</div><div class="key k-1">5</div><div class="key k-1">6</div>
+                
+                <div class="key k-1">1</div><div class="key k-1">2</div><div class="key k-1">3</div>
+                <div class="key k-1 k-h-2">Ent</div> <div class="key k-1 k-w-2">0</div> <div class="key k-1">.</div>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/js/keylog.js"></script>
+</body>
+</html>

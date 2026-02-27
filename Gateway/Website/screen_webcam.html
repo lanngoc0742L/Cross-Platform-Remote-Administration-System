@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Com.net - Webcam Capture</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/screen_webcam.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header class="nav-bar">
+        <div class="logo-container">
+            <img src="./assets/images/logo.png" alt="Logo" class="MyLogo" />
+        </div>
+        <nav class="nav-links">
+            <a href="./advanced_menu.html" class="nav-item">More</a>
+            <a href="#" class="nav-item">Settings</a>
+            <a href="./index.html" class="nav-item">Home</a>
+            <a href="#" class="nav-item btn-about">About</a>
+        </nav>
+    </header>
+
+    <div class="page-content">
+        <main class="media-section">
+            <div class="preview-container">
+                <div class="preview-frame">
+                    <div class="preview-screen" id="camera-feed">
+                        <span class="placeholder-text">Preview will appear here</span>
+                    </div>
+
+                    <div class="status-bar">
+                        <span class="label-fixed">Result will be saved at: </span>
+
+                        <span id="display-folder-path" class="path-clickable" onclick="triggerSelectFolder()"
+                            title="Nhấp để thay đổi thư mục">
+                            C:/User/Downloads/
+                        </span>
+
+                        <input type="text" id="input-file-name" value="capture_default.png" title="Nhấp để sửa tên file"
+                            autocomplete="off" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls-container">
+                <a href="#" onclick="backToMenu(); return false;" class="control-btn nav-back">Back to Menu</a>
+
+                <button class="control-btn action-capture"
+                    onclick="capture()">Capture</button>
+
+                <div class="control-group-record" onclick="record()">
+                    <span class="label">Record for duration</span>
+                    <input type="number" value="5" class="duration-input" min="1" max="15" />
+                </div>
+
+                <button class="control-btn action-save" onclick="handleSaveAction()">Save to device</button>
+            </div>
+
+            <input type="file" id="hidden-folder-input" webkitdirectory directory style="display: none;"
+                onchange="onFolderSelected(this)" />
+
+        </main>
+    </div>
+
+    <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/js/screen_webcam.js"></script>
+</body>
+
+</html>

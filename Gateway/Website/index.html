@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Com.net - Main Page</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+    <header class="nav-bar">
+        <div class="logo-container">
+            <img
+                src="./assets/images/logo.png"
+                alt="Logo"
+                class="MyLogo"
+            />
+        </div>
+
+        <nav class="nav-links">
+            <a href="" class="nav-item">More</a>
+            <a href="#" class="nav-item">Settings</a>
+            <a href="./index.html" class="nav-item">Home</a>
+            <a href="#" class="nav-item btn-about">About</a>
+        </nav>
+    </header>
+
+    <div class="page-content">
+        <main class="hero-section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h1 class="main-title">
+                        <span class="word-1">This is </span>
+                        <span class="word-2">Com</span><span class="word-3">.n</span><span class="word-4">et</span>
+                    </h1>
+
+                    <p class="description">
+                        Giải pháp tối ưu nhất để điều khiển một máy tính trong cùng LAN!
+                    </p>
+
+                    <div class="action-area">
+                        <button class="btn-connect">
+                            Connect to server
+                        </button>
+                    </div>
+                </div>
+
+                <div class="wire">
+                    <svg
+                        width="770"
+                        height="153"
+                        viewBox="0 0 770 153"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            class="wire-active"
+                            d="M764.346 60.4243C687.759 73.1198 643.75 60.7326 607.694 44.5776
+                               C571.68 28.441 542.73 7.98338 497.324 5.3364
+                               C445.475 2.31393 402.193 20.0401 365.2 43.4477
+                               C346.71 55.1474 329.768 68.2803 314.109 80.9643
+                               C298.412 93.6781 286.432 102.021 273 112
+                               C236.464 138.056 196.687 154.67 150.139 144.728
+                               C105.727 135.242 59.2925 104.275 22.5333 41.0229
+                               C24.8563 39.0662 26.3342 36.1377 26.3342 32.8628
+                               C26.3339 26.9719 21.558 22.1967 15.6671 22.1967
+                               C9.77613 22.1967 5.00022 26.9719 5 32.8628
+                               C5 38.7538 9.77599 43.5297 15.6671 43.5297
+                               C16.8478 43.5297 17.9824 43.3341 19.0441 42.9799"
+                        />
+
+                        <path
+                            class="wire-base"
+                            d="M764.346 60.4243C687.759 73.1198 643.75 60.7326 607.694 44.5776
+                               C571.68 28.441 542.73 7.98338 497.324 5.3364
+                               C445.475 2.31393 402.193 20.0401 365.2 43.4477
+                               C346.71 55.1474 329.768 68.2803 314.109 80.9643
+                               C298.412 93.6781 286.432 102.021 273 112
+                               C236.464 138.056 196.687 154.67 150.139 144.728
+                               C105.727 135.242 59.2925 104.275 22.5333 41.0229
+                               C24.8563 39.0662 26.3342 36.1377 26.3342 32.8628
+                               C26.3339 26.9719 21.558 22.1967 15.6671 22.1967
+                               C9.77613 22.1967 5.00022 26.9719 5 32.8628
+                               C5 38.7538 9.77599 43.5297 15.6671 43.5297
+                               C16.8478 43.5297 17.9824 43.3341 19.0441 42.9799"
+                        />
+                    </svg>
+                </div>
+
+                <div class="image-content">
+                    <img
+                        src="assets/images/router.png"
+                        alt="Router"
+                        class="router-img"
+                    >
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= SERVER LIST OVERLAY ================= -->
+    <div id="server-list-overlay" class="overlay hidden">
+        <div class="server-list-container">
+
+            <div class="list-header">
+                <div class="icon-btn">
+                    <img src="./assets/images/server.png" alt="Server">
+                </div>
+                <h2>Available agents</h2>
+
+                <div class="header-actions">
+                    <button
+                        id="reload-btn"
+                        class="btn-temp"
+                        onclick="reloadServers()"
+                    >
+                        <img src="./assets/images/reload.png" alt="Reload">
+                    </button>
+
+                    <button
+                        id="return-btn"
+                        class="btn-temp"
+                        onclick="closeAgentList()"
+                    >
+                        <img src="./assets/images/return.png" alt="Return">
+                    </button>
+                </div>
+            </div>
+
+            <div class="server-items-wrapper">
+                <ul id="server-list-content" class="server-list">
+                    <li class="server-item">Loading agents...</li>
+                </ul>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="change_page">
+                <button class="nav-btn prev-btn">
+                    <img src="./assets/images/left.png" class="left_img" alt="">
+                </button>
+
+                <span id="page-indicator">Page 1/1</span>
+
+                <button class="nav-btn next-btn">
+                    <img src="./assets/images/right.png" class="right_img" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-overlay" class="login-overlay hidden">
+        <div class="login-container">
+            <h1 class="login-title">> password:<span class="cursor">_</span></h1>
+            <form id="login-form" class="login-form">
+                <input 
+                    type="password" 
+                    id="password-input" 
+                    class="password-input"
+                    placeholder="" 
+                    required
+                    autocomplete="current-password"
+                    autofocus
+                >
+                <div id="login-error" class="login-error hidden"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./assets/js/scripts.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "name": "rat-gateway",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "nodemon --exec tsx src/index.ts",
+    "build": "tsc",
+    "package": "npm run build && pkg . --no-bytecode --out-path bin"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^9.6.0",
+    "dotenv": "^16.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^18.19.130",
+    "@types/ws": "^8.5.0",
+    "nodemon": "^3.0.1",
+    "pkg": "^5.8.1",
+    "ts-node": "^10.9.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.0.0"
+  },
+  "pkg": {
+    "assets": [
+      "dist/**/*",
+      "Website/**/*"
+    ],
+    "targets": [
+      "node18-win-x64",
+      "node18-linux-x64",
+      "node18-macos-x64"
+    ]
+  }
+}
