@@ -16,11 +16,11 @@ A. SYSTEM REQUIREMENTS
 
 B. GATEWAY DIRECTORY STRUCTURE
 Gateway/
-|-- src/                    # TypeScript Source Code (Server logic)
-|-- Website/                # Admin Interface (HTML/CSS/JS)
-|-- .env                    # Environment Config (Port, Token)
-|-- package.json            # Dependencies manifest
-|-- server.cert & server.key # SSL Certificates for HTTPS/WSS
+|-- src/                     # TypeScript Source Code (Server logic)
+|-- Website/                 # Admin Interface (HTML/CSS/JS)
+|-- .env                     # Environment Config (Port, Token)
+|-- package.json             # Dependencies manifest
+|-- server.cert & server.key # (Must be generated manually for HTTPS/WSS)
 
 C. INSTALLATION & RUNNING
 1. Navigate to the Gateway directory:
@@ -32,15 +32,21 @@ C. INSTALLATION & RUNNING
    * Note: The project uses "better-sqlite3". Installation may require 
      Python and C++ Build Tools on Windows to compile the native module.
 
-3. Configuration (Optional):
+3. Generate SSL Certificates (Required for HTTPS/WSS):
+   You must generate a self-signed certificate to run the Gateway. Open your terminal in the `Gateway` directory and run:
+   
+   ```bash
+   openssl req -nodes -new -x509 -keyout server.key -out server.cert -days 365
+
+4. Configuration (Optional):
    Open the ".env" file to modify the port (PORT) or auth token (AUTH_TOKEN).
    Default: PORT=8080
 
-4. Start the Server:
+5. Start the Server:
    npm start
    (Or use command: npx ts-node src/index.ts)
 
-5. Access the Admin Interface:
+6. Access the Admin Interface:
    Open a browser and navigate to: https://<your ip>:8080
    (Note: You must use HTTPS as the project uses self-signed SSL)
 
@@ -142,6 +148,24 @@ PART 4: IMPORTANT NOTES
 3. Discovery:
    - Agent has an automatic Gateway discovery mode (UDP Broadcast).
    - If not found, it will read the config.txt file.
+
+------------------------------------------------------------------
+TECHNICAL TASK ALLOCATION
+------------------------------------------------------------------
+
+1. Ngoc Khanh (Backend, Core Architecture & Security)
+   - Cross-Platform Infrastructure: Architected and set up the foundational system infrastructure, ensuring full compatibility across Windows, Linux, and macOS environments.
+   - Comprehensive Feature Development: Engineered and deployed the core backend features and functionalities across all three operating systems.
+   - OS-Specific System Modules: Developed the media capture (photo/video recording) and application/process management modules exclusively for Linux. Implemented the keystroke logging functionality for both Linux and macOS.
+   - Data Stream Security: Integrated robust encryption protocols (SSL/TLS) to secure network communications, ensuring end-to-end protection and integrity of data streams in transit.
+
+2. Tuan Khang (Frontend & Windows Operations)
+   - User Interface: Developed the interactive web-based dashboard and managed the overall application interaction flow.
+   - Windows Process Management: Engineered Windows-specific modules for application and process control, including listing, querying, execution, and termination tasks.
+
+3. Minh Tri (System Monitoring & Integration)
+   - Monitoring Modules: Implemented screen and webcam capture capabilities for Windows and macOS, and developed the keystroke logging module for Windows.
+   - System Integration: Supported frontend-backend integration and refined the overall user interface experience.
 
 ------------------------------------------------------------------
 DISCLAIMER
